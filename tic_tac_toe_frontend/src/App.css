@@ -1,0 +1,191 @@
+:root {
+  --ttt-primary: #1976d2;
+  --ttt-accent: #fbc02d;
+  --ttt-secondary: #424242;
+  --ttt-bg: #f7fafd;
+  --ttt-board-bg: #fff;
+  --ttt-shadow: 0 2px 18px 0 rgba(20, 39, 79, 0.06);
+  --ttt-highlight: #fffbe7;
+}
+
+/* Main page layout */
+.ttt-app-outer {
+  min-height: 100vh;
+  background: var(--ttt-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ttt-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--ttt-board-bg);
+  border-radius: 20px;
+  box-shadow: var(--ttt-shadow);
+  padding: 38px 28px 28px 28px;
+  margin-top: 60px;
+  min-width: 330px;
+  max-width: 96vw;
+  min-height: 450px;
+  justify-content: center;
+}
+
+.ttt-title {
+  margin-top: 0.1em;
+  margin-bottom: 0.6em;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--ttt-secondary);
+  text-align: center;
+}
+
+/* Status area */
+.ttt-status {
+  font-size: 1.3rem;
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.ttt-status-winner {
+  color: var(--ttt-primary);
+  font-weight: 700;
+  font-size: 1.4em;
+}
+
+.ttt-status-draw {
+  color: var(--ttt-secondary);
+  font-weight: 500;
+}
+
+/* Turn Indicator coloring */
+.ttt-turn-x {
+  color: var(--ttt-primary);
+  font-weight: 700;
+}
+
+.ttt-turn-o {
+  color: var(--ttt-accent);
+  font-weight: 700;
+}
+
+/* Board styling */
+.ttt-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--ttt-board-bg);
+  border-radius: 13px;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 7px 0 rgba(33, 60, 83, 0.07);
+}
+
+.ttt-board-row {
+  display: flex;
+}
+
+.ttt-square {
+  width: 64px;
+  height: 64px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  border: 2px solid var(--ttt-secondary);
+  background: #fff;
+  color: var(--ttt-secondary);
+  outline: none;
+  border-radius: 11px;
+  margin: 5px;
+  transition: border-color 0.22s, background 0.2s, color 0.12s;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ttt-square:active {
+  background: #f8f9fa;
+}
+
+.ttt-square.win {
+  background: var(--ttt-highlight);
+  border-color: var(--ttt-accent);
+  z-index: 2;
+}
+
+.ttt-square[aria-label*="empty"]:hover:not(.win) {
+  border-color: var(--ttt-primary);
+}
+
+/* Restart Button styling */
+.ttt-restart-btn {
+  margin-top: 18px;
+  background: var(--ttt-primary);
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.65em 1.8em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.18s;
+  box-shadow: 0 1px 7px 0 rgba(33,60,83,0.07);
+}
+
+.ttt-restart-btn:hover, .ttt-restart-btn:focus {
+  background: var(--ttt-accent);
+  color: var(--ttt-secondary);
+  box-shadow: 0 3px 9px 0 rgba(33,60,83,0.13);
+}
+
+/* Simple footer */
+.ttt-footer {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  opacity: 0.87;
+  letter-spacing: 0.01em;
+}
+
+.ttt-x-color {
+  color: var(--ttt-primary); font-weight: 700;
+}
+.ttt-o-color {
+  color: var(--ttt-accent); font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .ttt-container {
+    min-width: 98vw;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 18px 2vw 18px 2vw;
+    margin-top: 12vw;
+  }
+  .ttt-title {
+    font-size: 1.5rem;
+  }
+  .ttt-board-row, .ttt-board {
+    padding: 0;
+  }
+  .ttt-square {
+    width: 19vw;
+    height: 19vw;
+    font-size: 1.45rem;
+    margin: 2vw 2vw 2vw 0;
+    min-width: 52px;
+    min-height: 52px;
+    max-width: 80px;
+    max-height: 80px;
+  }
+  .ttt-restart-btn {
+    font-size: 0.95rem;
+    padding: 0.5em 1.3em;
+  }
+}
