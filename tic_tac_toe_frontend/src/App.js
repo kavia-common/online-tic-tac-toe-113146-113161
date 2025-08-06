@@ -63,15 +63,7 @@ function App() {
       <button
         key={i}
         className={`ttt-square${isWinSquare ? ' win' : ''}`}
-        style={{
-          color: squares[i] === 'X'
-            ? COLORS.primary
-            : squares[i] === 'O'
-            ? COLORS.accent
-            : COLORS.secondary,
-          borderColor: isWinSquare ? COLORS.accent : COLORS.secondary,
-          background: isWinSquare ? '#fffbe7' : '#fff',
-        }}
+        data-player={squares[i] ? squares[i] : undefined}
         onClick={() => handleClick(i)}
         aria-label={`Tic Tac Toe Cell ${i + 1}, ${squares[i] ? (squares[i] === 'X' ? 'X' : 'O') : 'empty'}`}
       >
